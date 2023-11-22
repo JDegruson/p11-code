@@ -21,7 +21,7 @@ public class AppointmentController {
 	 */
 	@PostMapping(path = "/create")
 	@ResponseStatus(HttpStatus.OK)
-	public String appointment(@RequestParam AppointmentDTO appointmentDTO) {
+	public String createAppointment(@RequestParam AppointmentDTO appointmentDTO) {
 		return "OK";
 	}
 }
