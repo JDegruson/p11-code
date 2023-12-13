@@ -27,7 +27,7 @@ public class DatabaseConfig {
 
 	@Bean
 	public DataSource dataSource() {
-		return DataSourceBuilder.create().url("jdbc:mysql://" + adresseIP + ":" + port + "/" + nomBaseDeDonnees)
+		return DataSourceBuilder.create().url("jdbc:mysql://" + adresseIP + ":" + port + "/" + nomBaseDeDonnees + "?serverTimezone=Europe/Paris")
 				.username(nomUtilisateur).password(motDePasse).build();
 	}
 }

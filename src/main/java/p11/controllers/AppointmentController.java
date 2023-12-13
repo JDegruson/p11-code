@@ -2,6 +2,7 @@ package p11.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,12 @@ public class AppointmentController {
 	@PostMapping(path = "/create")
 	@ResponseStatus(HttpStatus.OK)
 	public String createAppointment(@RequestParam AppointmentDTO appointmentDTO) {
+		return "OK";
+	}
+	
+	@GetMapping(path = "/findHospital")
+	@ResponseStatus(HttpStatus.OK)
+	public String findHospital(@RequestParam AppointmentDTO appointmentDTO) {
 		return "OK";
 	}
 }
