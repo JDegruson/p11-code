@@ -1,8 +1,8 @@
-package gitme.money.repositories;
+package p11.repositories;
 
 import org.springframework.stereotype.Repository;
 
-import gitme.money.dto.AppointmentDTO;
+import p11.dto.AppointmentDTO;
 
 @Repository
 public class AppointmentRepository {

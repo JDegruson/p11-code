@@ -1,6 +1,6 @@
-package gitme.money.dto;
+package p11.dto;
 
-import gitme.money.enums.Speciality;
+import p11.enums.Speciality;
 
 public class AppointmentDTO {
 

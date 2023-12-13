@@ -1,4 +1,4 @@
-package gitme.money;
+package p11;
 
 import javax.sql.DataSource;
 

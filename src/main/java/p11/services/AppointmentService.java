@@ -1,12 +1,12 @@
-package gitme.money.services;
+package p11.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import gitme.money.dto.AppointmentDTO;
-import gitme.money.repositories.AppointmentRepository;
+import p11.dto.AppointmentDTO;
+import p11.repositories.AppointmentRepository;
 
 @Service
 public class AppointmentService {

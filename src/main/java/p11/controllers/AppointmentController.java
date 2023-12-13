@@ -1,4 +1,4 @@
-package gitme.money.controllers;
+package p11.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import gitme.money.dto.AppointmentDTO;
+import p11.dto.AppointmentDTO;
 
 @CrossOrigin(maxAge = 3600)
 @RestController

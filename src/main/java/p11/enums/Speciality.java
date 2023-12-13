@@ -1,4 +1,4 @@
-package gitme.money.enums;
+package p11.enums;
 
 public enum Speciality {
 
