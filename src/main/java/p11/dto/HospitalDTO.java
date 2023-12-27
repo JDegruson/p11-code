@@ -11,6 +11,7 @@ public class HospitalDTO {
 	private Double latitude;
 	private String distance;
 	private String time;
+	private int numberOfAvailableBed;
 	private boolean selected;
 
 	public String getName() {
@@ -67,6 +68,21 @@ public class HospitalDTO {
 
 	public void setSelected(boolean selected) {
 		this.selected = selected;
+	}
+
+	public int getNumberOfAvailableBed() {
+		return numberOfAvailableBed;
+	}
+
+	public void setNumberOfAvailableBed(int numberOfAvailableBed) {
+		this.numberOfAvailableBed = numberOfAvailableBed;
+	}
+
+	@Override
+	public String toString() {
+		return "HospitalDTO [name=" + name + ", specialities=" + specialities + ", longitude=" + longitude
+				+ ", latitude=" + latitude + ", distance=" + distance + ", time=" + time + ", numberOfAvailableBed="
+				+ numberOfAvailableBed + ", selected=" + selected + "]";
 	}
 
 }
