@@ -103,4 +103,9 @@ public class AppointmentService {
 		return allElements.subList(0, 20);
 	}
 
+	public List<AppointmentDTO> getAppointments() {
+		logger.info("Get appointments");
+		return appointmentRepository.getAppointments();
+	}
+
 }
