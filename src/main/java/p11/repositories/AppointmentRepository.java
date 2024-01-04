@@ -28,7 +28,9 @@ public class AppointmentRepository {
 		paramMap.put("latitude", appointmentDTO.getLatitude());
 		paramMap.put("patient_name", appointmentDTO.getPatientName());
 		paramMap.put("hospital_name", appointmentDTO.getHospitalName());
-		paramMap.put("speciality", appointmentDTO.getSpeciality().name());
+		if (appointmentDTO.getSpeciality() != null) {
+			paramMap.put("speciality", appointmentDTO.getSpeciality().name());
+		}
 		paramMap.put("time", appointmentDTO.getTime());
 		jdbcTemplate.update(sql, paramMap);
 
