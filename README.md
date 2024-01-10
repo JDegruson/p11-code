@@ -1,37 +1,46 @@
+# Gestion des Rendez-vous Médicaux
+Ce projet est une application de gestion des rendez-vous médicaux. Il permet aux patients de prendre rendez-vous dans des hôpitaux en fonction de leur spécialité médicale et de leur proximité.
 
-Projet de Réservation de Rendez-vous Médical
-Ce projet vise à créer une application React permettant aux utilisateurs de prendre des rendez-vous médicaux en ligne de manière simple et efficace.
+## Fonctionnalités
+Création de Rendez-vous: Les utilisateurs peuvent créer des rendez-vous en spécifiant leur emplacement et la spécialité médicale.
 
-Fonctionnalités Principales
-Page Principale : Affiche une interface conviviale permettant aux utilisateurs de naviguer entre différentes sections de l'application.
-Prendre un Rendez-vous : Permet aux utilisateurs de sélectionner leur emplacement, spécialité médicale et horaire pour réserver un rendez-vous.
-Affichage des Rendez-vous : Une page dédiée qui affiche tous les rendez-vous pris par l'utilisateur.
-Technologies Utilisées
-React : La bibliothèque JavaScript pour la construction de l'interface utilisateur.
-React Router : Pour la gestion des routes et de la navigation dans l'application.
-Google Maps API : Intégration pour la sélection d'emplacements.
-@react-google-maps/api : Bibliothèque pour l'intégration facile de Google Maps avec React.
-Autres dépendances : Jest pour les tests unitaires, etc.
-Installation
-Cloner le repository : git clone https://github.com/votre-utilisateur/votre-projet.git
-Installer les dépendances : npm install
-Lancer l'application : npm start
+Recherche d'Hôpitaux: Les utilisateurs peuvent rechercher des hôpitaux disponibles en fonction de leur emplacement et de la spécialité médicale souhaitée.
 
-Git workflow :
-  Branches principales:
-    master: Représente la branche principale du développement, contenant toujours le dernier déploiement de production.
-  Flux de travail:
-    Développement de nouvelles fonctionnalités dans des branches distinctes.
-    Création d'une pull request pour discussion et validation.
-    Fusion de la pull request dans master après la validation.
-    Le déploiement continu est encouragé, avec des mises en production fréquentes à partir de master.
-    Les bugs et les corrections sont effectués directement dans master et déployés immédiatement.
+Consultation des Rendez-vous: Les utilisateurs peuvent consulter la liste de leurs rendez-vous existants.
 
-Configuration de Google Maps API
-Obtenez une clé API Google Maps à partir de Google Cloud Console.
-Copiez la clé API dans le fichier AddressForm.js où apiKey est défini.
-Tests Unitaires
-Le projet utilise Jest pour les tests unitaires. Pour lancer les tests, utilisez la commande : npm test
+## Technologies Utilisées
+Java
+Spring Boot
+MySQL 
+
+## Configuration du Projet
+### Clonage du Projet:
+git clone https://github.com/JDegruson/p11-code.git
+
+### Configuration de la Base de Données:
+
+
+CREATE DATABASE IF NOT EXISTS `p11` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `p11`;
+
+-- Listage de la structure de la table p11. appointment
+CREATE TABLE IF NOT EXISTS `appointment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `longitude` decimal(10,8) NOT NULL,
+  `latitude` decimal(10,8) NOT NULL,
+  `patient_name` varchar(255) NOT NULL,
+  `hospital_name` varchar(255) NOT NULL,
+  `speciality` varchar(255) NOT NULL,
+  `time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+Mettez à jour les informations de la base de données dans le fichier application.properties.
+
+## Exécution du Projet:
+./mvnw spring-boot:run
+L'application sera accessible à l'adresse http://localhost:8080.
 
 Auteur
 Degruson Julien
