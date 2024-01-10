@@ -34,4 +34,4 @@ Tests Unitaires
 Le projet utilise Jest pour les tests unitaires. Pour lancer les tests, utilisez la commande : npm test
 
 Auteur
-[Ajoutez votre nom ici]
+Degruson Julien
