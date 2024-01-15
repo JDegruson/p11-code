@@ -17,6 +17,12 @@ MySQL
 ### Clonage du Projet:
 git clone https://github.com/JDegruson/p11-code.git
 
+## Git workflow 
+### Branches principales
+main: Représente la branche principale du développement, contenant toujours le dernier déploiement de production. 
+### Flux de travail
+Développement de nouvelles fonctionnalités dans des branches distinctes. Création d'une pull request pour discussion et validation. Fusion de la pull request dans master après la validation. Le déploiement continu est encouragé, avec des mises en production fréquentes à partir de main. Les bugs et les corrections sont effectués directement dans main et déployés immédiatement.
+
 ### Configuration de la Base de Données:
 
 
