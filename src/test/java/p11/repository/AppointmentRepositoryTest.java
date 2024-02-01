@@ -89,7 +89,6 @@ public class AppointmentRepositoryTest {
 		return expectedParamMap;
 	}
 
-	@SuppressWarnings("unchecked")
 	private static Matcher<AppointmentDTO> hasSameAttributes(AppointmentDTO expected) {
 		return allOf(hasProperty("id", equalTo(expected.getId())),
 				hasProperty("latitude", equalTo(expected.getLatitude())),
