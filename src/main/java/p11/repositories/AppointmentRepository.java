@@ -37,10 +37,9 @@ public class AppointmentRepository {
 	}
 
 	public List<AppointmentDTO> getAppointments() {
-		Map<String, Object> paramMap = new HashMap<String, Object>();
 		StringBuilder sql = new StringBuilder();
 		sql.append("SELECT * FROM appointment");
-		return jdbcTemplate.query(sql.toString(), paramMap, new AppointmentRowMapper());
+		return jdbcTemplate.query(sql.toString(), new AppointmentRowMapper());
 	}
 
 }
