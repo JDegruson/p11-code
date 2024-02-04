@@ -18,6 +18,20 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import p11.repositories.UserDetailsRepository;
 
+/**
+ * JwtFilter is a component that performs JWT (JSON Web Token) authentication by
+ * intercepting and processing incoming HTTP requests. It extends
+ * OncePerRequestFilter to ensure that it is invoked exactly once per request.
+ * 
+ * <p>
+ * This filter checks the Authorization header of the incoming request for a
+ * valid JWT. If a valid JWT is present, it extracts the user details from the
+ * token, validates it, and sets up the Spring Security context for the
+ * authenticated user.
+ * </p>
+ * 
+ * 
+ */
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
@@ -27,6 +41,15 @@ public class JwtFilter extends OncePerRequestFilter {
 	@Autowired
 	private JwtUtil jwtUtil;
 
+	/**
+	 * Performs the actual JWT authentication for each incoming HTTP request.
+	 * 
+	 * @param request     the incoming HTTP request
+	 * @param response    the HTTP response
+	 * @param filterChain the filter chain for further processing
+	 * @throws ServletException if an exception occurs during processing
+	 * @throws IOException      if an I/O error occurs
+	 */
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {

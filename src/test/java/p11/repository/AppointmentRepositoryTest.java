@@ -20,7 +20,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.hamcrest.Matcher;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -53,7 +53,7 @@ public class AppointmentRepositoryTest {
 	}
 
 	@Test
-	public void testgetAppointments() {
+	public void testGetAppointments() {
 
 		DataSource dataSource = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
 				.addScript("classpath:schema.sql").addScript("classpath:data.sql").build();
