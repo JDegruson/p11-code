@@ -27,6 +27,24 @@ import p11.dto.AppointmentDTO;
 import p11.dto.HospitalDTO;
 import p11.enums.Speciality;
 
+/**
+ * HospitalService is a Spring service class responsible for finding the nearest
+ * hospital based on an appointment's details. It uses the Google Maps API for
+ * location-related operations.
+ * 
+ * <p>
+ * This service class provides a method {@code findHospital} that takes an
+ * {@link AppointmentDTO} and returns the closest hospital based on its
+ * specifications.
+ * </p>
+ * 
+ * <p>
+ * The service class is initialized with the Google Maps API key, which is
+ * injected using the {@code @Value} annotation.
+ * </p>
+ * 
+ * 
+ */
 @Service
 public class HospitalService {
 
@@ -35,6 +53,16 @@ public class HospitalService {
 	@Value("${google.api.key}")
 	private String apiKey;
 
+	public HospitalService(@Value("${google.api.key}") String apiKey) {
+		this.apiKey = apiKey;
+	}
+
+	/**
+	 * Finds the nearest hospital based on the details of the provided appointment.
+	 * 
+	 * @param appointmentDTO the appointment details
+	 * @return the closest hospital as an instance of {@link HospitalDTO}
+	 */
 	public HospitalDTO findHospital(AppointmentDTO appointmentDTO) {
 		GeoApiContext context = new GeoApiContext.Builder().apiKey(apiKey).build();
 		LatLng originLocation = new LatLng(appointmentDTO.getLatitude(), appointmentDTO.getLongitude());
@@ -44,6 +72,16 @@ public class HospitalService {
 		return getClosestHospital(appointmentDTO, context, originLocation, hospitals);
 	}
 
+	/**
+	 * Finds the closest hospital based on the details of the provided appointment.
+	 * 
+	 * @param appointmentDTO the appointment details
+	 * @param context        the GeoApiContext for Google Maps API
+	 * @param originLocation the origin location as LatLng
+	 * @param hospitals      a list of nearby hospitals
+	 * @return the closest hospital as an instance of {@link HospitalDTO}, or null
+	 *         if no hospital meets the criteria
+	 */
 	private HospitalDTO getClosestHospital(AppointmentDTO appointmentDTO, GeoApiContext context, LatLng originLocation,
 			List<HospitalDTO> hospitals) {
 		for (HospitalDTO hospitalDTO : hospitals) {
@@ -63,6 +101,14 @@ public class HospitalService {
 		return null;
 	}
 
+	/**
+	 * Gets a list of nearby hospitals based on the provided GeoApiContext and
+	 * origin location.
+	 * 
+	 * @param context        the GeoApiContext for Google Maps API
+	 * @param originLocation the origin location as LatLng
+	 * @return a list of nearby hospitals as instances of {@link HospitalDTO}
+	 */
 	private List<HospitalDTO> getNearbyHospitals(GeoApiContext context, LatLng originLocation) {
 		List<HospitalDTO> hospitals = new ArrayList<HospitalDTO>();
 		try {
