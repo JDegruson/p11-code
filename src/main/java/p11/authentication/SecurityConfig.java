@@ -45,7 +45,7 @@ public class SecurityConfig {
 		for (UserDetails userDetails : allUsers) {
 
 			UserDetails user = User.withUsername(userDetails.getUsername()).password(userDetails.getPassword())
-					.roles("USER").build();
+					.roles("ADMIN").build();
 
 			manager.createUser(user);
 		}
