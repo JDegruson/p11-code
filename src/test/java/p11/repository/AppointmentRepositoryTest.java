@@ -38,6 +38,7 @@ public class AppointmentRepositoryTest {
 		AppointmentRepository appointmentRepository = new AppointmentRepository(jdbcTemplate);
 
 		AppointmentDTO appointmentDTO = new AppointmentDTO();
+
 		appointmentDTO.setLongitude(1.0);
 		appointmentDTO.setLatitude(2.0);
 		appointmentDTO.setPatientName("John Doe");
