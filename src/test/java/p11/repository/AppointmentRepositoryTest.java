@@ -42,6 +42,7 @@ public class AppointmentRepositoryTest {
 		appointmentDTO.setLatitude(2.0);
 		appointmentDTO.setPatientName("John Doe");
 		appointmentDTO.setHospitalName("Sample Hospital");
+		appointmentDTO.setSpeciality(Speciality.MEDECINE_GENERALE);
 
 		int queryResult = 1;
 
