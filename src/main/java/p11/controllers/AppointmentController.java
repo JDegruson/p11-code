@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -65,6 +66,7 @@ public class AppointmentController {
 	 * @return a ResponseEntity containing the list of appointments
 	 */
 	@GetMapping(path = "/appointments")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<List<AppointmentDTO>> getAppointments() {
 		logger.info("Get appointments");
 		List<AppointmentDTO> appointments = appointmentService.getAppointments();

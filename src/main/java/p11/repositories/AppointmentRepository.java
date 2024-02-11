@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import p11.dto.AppointmentDTO;
 import p11.dto.AppointmentRowMapper;
+import p11.enums.Speciality;
 
 @Repository
 public class AppointmentRepository {
@@ -22,7 +23,8 @@ public class AppointmentRepository {
 	}
 
 	public void createAppointment(AppointmentDTO appointmentDTO) {
-		String sql = "INSERT INTO appointment (longitude, latitude, patient_name, hospital_name, speciality, time) VALUES (:longitude,:latitude,:patient_name,:hospital_name,:speciality,:time);";
+		String sql = "INSERT INTO appointment (longitude, latitude, patient_name, hospital_name, speciality, time) "
+				+ "VALUES (:longitude,:latitude,:patient_name,:hospital_name,:speciality,:time);";
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("longitude", appointmentDTO.getLongitude());
 		paramMap.put("latitude", appointmentDTO.getLatitude());
@@ -30,6 +32,8 @@ public class AppointmentRepository {
 		paramMap.put("hospital_name", appointmentDTO.getHospitalName());
 		if (appointmentDTO.getSpeciality() != null) {
 			paramMap.put("speciality", appointmentDTO.getSpeciality().name());
+		} else {
+			paramMap.put("speciality", Speciality.MEDECINE_GENERALE);
 		}
 		paramMap.put("time", appointmentDTO.getTime());
 		jdbcTemplate.update(sql, paramMap);
