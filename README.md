@@ -18,6 +18,13 @@ MySQL
 git clone https://github.com/JDegruson/p11-code.git
 
 ## Git workflow 
+### Pipeline
+Nous avons mis en place un pipeline GitHub pour automatiser l'exécution des tests à chaque changement sur la branche main.
+Le pipeline execute un build maven clean install et ensuite execute tous les tests unitaires du projet.
+
+Voici comment vous pouvez vérifier l'état des tests :
+Accédez à l'onglet "Actions" de ce référentiel GitHub pour voir l'état du dernier pipeline. Si les tests réussissent, le pipeline sera marqué comme réussi (vert).
+
 ### Branches principales
 main: Représente la branche principale du développement, contenant toujours le dernier déploiement de production. 
 ### Flux de travail
